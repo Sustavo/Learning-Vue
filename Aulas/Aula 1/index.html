@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <title>Vue</title>
+</head>
+<body>
+    <div id="comercio">
+        <p>Bermudas - R$ <span >{{preco}}</span></p>
+        <button @click="total++" >adicionar</button>
+        <button @click="total--" >remover</button>
+        <span >{{total}}</span>
+        <p>Total: {{preco * total}} <span></span></p>
+    </div>
+    <div>
+        <p>Camisas - R$ <span class="preco"></span></p>
+        <button class="adicionar">adicionar</button>
+        <button class="remover">remover</button>
+        <span class="total"></span>
+        <p>Total: <span class="precoTotal"></span></p>
+    </div>
+    
+
+    <script>
+
+        const vm = new Vue({
+            el: '#comercio',
+            data: {
+                preco: 69,
+                total: 0
+            }
+        })
+
+
+        const dados = {
+            preco: 49,
+            total: 0
+        }
+
+        const preco = document.querySelector('.preco');
+        const total = document.querySelector('.total');
+        const adicionar = document.querySelector('.adicionar');
+        const remover = document.querySelector('.remover');
+        const precoTotal = document.querySelector('.precoTotal');
+
+        preco.innerText = dados.preco;
+        total.innerText = dados.total;
+        precoTotal.innerText = dados.preco * dados.total;
+
+        function incrementar() {
+            dados.total++;
+            atualizarUI()
+        }
+        function diminuir() {
+            dados.total--
+            atualizarUI()
+        }
+
+        function atualizarUI() {
+            total.innerText = dados.total;
+            precoTotal.innerText = dados.total * dados.preco
+            preco.innerHTML = dados.preco;
+        }
+
+        adicionar.addEventListener('click', incrementar);
+        remover.addEventListener('click',diminuir);
+
+    </script>
+</body>
+</html>
