@@ -11,6 +11,11 @@
     <div id="app">
         <button @click="contador++">Clique Aqui</button>
         {{contador}}
+        <button @click="ativo = !ativo">Toggle</button>
+        {{ativo}}
+        <a href="#interno" @click.prevent.once="handleClick" >Link Interno</a>
+        <input type="text" @keyup.enter="handleClick">
+        <p @mousemove="handleMove">Esse é o moouse x: {{mouse.x}} </p>
 
     </div>
 
@@ -19,10 +24,16 @@
             el: '#app',
             data: {
                 contador: 0,
+                ativo: true,
+                mouse: ''
             },
             methods: { 
                 handleClick(event) {
                     console.log(event)
+                },
+                handleMove(event) {
+                    this.mouse = event;
+
                 }
             }
         })
