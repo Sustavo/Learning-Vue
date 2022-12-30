@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <lista-produtos :produtos="listaItens" ></lista-produtos>
+    </div>
+
+    <script>
+        const ListaProdutos = {
+            name: "ListaProdutos",
+            props: ['produtos'],
+            template: `
+                <ul>
+                    <li v-for="produto in produtos">{{produto}}</li>
+                </ul>
+
+            `
+        };
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                listaItens: ['item 1','item 2'],
+            },
+            components: {
+                ListaProdutos,
+            },
+        });
+    </script>
+    
+</body>
+</html>
