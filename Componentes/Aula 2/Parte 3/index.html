@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <blog-spot
+            :titulo="blog.titulo"
+            :texto="blog.texto"
+            :likes="blog.likes"
+        ></blog-spot>
+    </div>
+
+    <script>
+        const BlogSpot = {
+            name: "BlogSpot",
+            props: ['titulo', 'texto', 'likes'],
+            template: `
+                <article>
+                    <h1>{{titulo}}</h1>
+                    <p>{{texto}}</p>
+                    <span>{{likes}}</span>
+                </article>
+            `,
+        };
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                blog: {
+                    titulo: 'Nova Postagem',
+                    texto: 'Esse é o texto completo',
+                    data: '23/12',
+                    likes: 100
+                }
+            },
+            components: {
+                BlogSpot,
+            }
+        })
+    </script>
+</body>
+</html>
