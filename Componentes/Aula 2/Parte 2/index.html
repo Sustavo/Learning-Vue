@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <lista-cursos></lista-cursos>
+    </div>
+
+    <script>
+        const DadosCurso = {
+            name: 'DadosCurso',
+            props: ['curso'],
+            template: `
+                <p>Nome do curso:{{curso}}</p>
+            `,
+        };
+
+        const ListaCursos = {
+            name: 'ListaCursos',
+            data() {
+                return {
+                    cursos: ['html', 'css',' javascript', 'vue'],
+                };
+            },
+            components: {
+                DadosCurso,
+            },
+            template: `
+                <ul>
+                    <dados-curso
+                        v-for="curso in cursos"
+                        :curso="curso"
+                        :key="curso" 
+                    ></dados-curso>    
+                </ul>
+            `
+        }
+
+        const vm = new Vue({
+            el: '#app',
+            components: {
+                ListaCursos,
+            },
+        });
+    </script>
+    
+</body>
+</html>
