@@ -21,3 +21,10 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+#Manual
+vue-cli/babel.config.js
+vue-cli/jsconfig.json
+vue-cli/package.json
+vue-cli/vue.config.js
+vue-cli/yarn.lock
