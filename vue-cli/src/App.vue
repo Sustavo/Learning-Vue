@@ -33,13 +33,16 @@
 
     <!-- <TransitionEstoque /> -->
 
-    <ul>
+    <!-- <ul>
       <li @click="componenteAtivo = 'FalandoEmpresa'">Sobre</li>
       <li @click="componenteAtivo = 'ServicoEmpresa'">Serviços</li>
     </ul>
     <transition name="fade" mode="out-in">
       <component :is="componenteAtivo"></component>
-    </transition>
+    </transition> -->
+
+    <MoveAnimacao />
+
 
   </div>
 </template>
@@ -49,14 +52,16 @@
   // import ModalAlerta2 from './components/Slots/ModalAlerta2.vue';
   // import AulaDescricao from './components/Dynamic/AulaDescricao.vue';
   // import AulaDownloads from './components/Dynamic/AulaDownloads.vue';
-  import FalandoEmpresa from './components/Exercícios/dynamic/FalandoEmpresa.vue'
-  import ServicoEmpresa from './components/Exercícios/dynamic/ServicoEmpresa.vue'
+  // import FalandoEmpresa from './components/Exercícios/dynamic/FalandoEmpresa.vue'
+  // import ServicoEmpresa from './components/Exercícios/dynamic/ServicoEmpresa.vue'
   // import FormularioContato from './components/Exercícios/dynamic/FormularioContato.vue'
   // import TransitionAnimation from './components/Animacoes/TransitionAnimation.vue'
   // import TransitionAppear from './components/Animacoes/Transition/TransitionAppear.vue';
   // import TransitionExerc from './components/Exercícios/Transition/TransitionExerc.vue';
   // import TransitionHooks from './components/Animacoes/Transition/TransitionHooks.vue'
   // import TransitionEstoque from './components/Animacoes/Components/TransitionEstoque.vue';
+  // import ListaAnimacao from './components/Animacoes/Lists/ListaAnimacao.vue';
+  import MoveAnimacao from './components/Animacoes/Lists/MoveAnimacao.vue';
   
 
   export default {
@@ -66,18 +71,20 @@
       // ModalAlerta2,
       // AulaDescricao,
       // AulaDownloads: () => import("./components/Dynamic/AulaDownloads.vue"), //Deixando a chamda de forma asíncrona
-      FalandoEmpresa,
-      ServicoEmpresa,
+      // FalandoEmpresa,
+      // ServicoEmpresa,
       // FormularioContato,
       // TransitionAnimation,
       // TransitionAppear,
       // TransitionExerc,
       // TransitionHooks,
       // TransitionEstoque,
+      // ListaAnimacao,
+      MoveAnimacao,
     },
     data() {
       return {
-        componenteAtivo: "FalandoEmpresa",
+        // componenteAtivo: "FalandoEmpresa",
         // componenteMenu: "FalandoEmpresa"
       }
     }
