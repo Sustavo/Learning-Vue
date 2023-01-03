@@ -28,3 +28,10 @@ vue-cli/jsconfig.json
 vue-cli/package.json
 vue-cli/vue.config.js
 vue-cli/yarn.lock
+
+#Vue Router
+vue-router/babel.config.js
+vue-router/jsconfig.json
+vue-router/package.json
+vue-router/vue.config.js
+vue-router/yarn.lock
