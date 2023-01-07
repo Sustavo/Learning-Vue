@@ -4,8 +4,11 @@
     <nav>
       <router-link to="/">Home</router-link>
       <router-link to="/cursos">Cursos</router-link>
+      <router-link to="/acoes">Ações</router-link>
     </nav>
-    <router-view></router-view>
+    <transition mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -40,5 +43,16 @@ a {
 .router-link-exact-active {
   color: #4b8;
   font-weight: bold;
+}
+
+.v-enter,
+.v-leave-to {
+  transform: translate3d(-20px, 0, 0);
+  opacity: 0;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: all .3s;
 }
 </style>
