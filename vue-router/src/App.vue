@@ -6,9 +6,10 @@
       <router-link to="/cursos">Cursos</router-link>
       <router-link to="/acoes">Ações</router-link>
     </nav>
-    <transition mode="out-in">
-      <router-view></router-view>
-    </transition>
+    <div>
+      <router-view name="main"></router-view>
+      <router-view name="sidebar"></router-view>
+    </div>
   </div>
 </template>
 
