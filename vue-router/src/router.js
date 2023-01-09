@@ -1,12 +1,12 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
-import Cursos from "./views/Cursos.vue";
-import Curso from "./views/Curso.vue";
-import CursoAulas from "./views/CursoAulas.vue";
-import CursoDescricao from "./views/CursoDescricao.vue";
-import Acoes from "./views/Acoes.vue";
-import AcoesDados from "./views/AcoesDados.vue";
+const Home = () => import("./views/Home.vue");
+const Cursos = () => import("./views/Cursos.vue");
+const Curso = () => import("./views/Curso.vue");
+const CursoAulas = () => import("./views/CursoAulas.vue");
+const CursoDescricao = () => import("./views/CursoDescricao.vue");
+const Acoes = () => import("./views/Acoes.vue");
+const AcoesDados = () => import("./views/AcoesDados.vue");
 
 Vue.use(Router);
 
@@ -16,11 +16,21 @@ export default new Router({
   routes: [
     {
       path: "/",
-      component: Home
+      components: {
+        main: Home,
+        sidebar: Acoes
+      } 
+    },
+    {
+      path: "*",
+      redirect: "/"
     },
     {
       path: "/acoes",
-      component: Acoes,
+      components: {
+        main: Acoes,
+        sidebar: Home
+      },
       children: [
         {
           path: ":simbolo",
@@ -57,5 +67,8 @@ export default new Router({
         },
       ]
     },
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    return window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 })
