@@ -35,3 +35,4 @@ vue-router/jsconfig.json
 vue-router/package.json
 vue-router/vue.config.js
 vue-router/yarn.lock
+vue-router/dist
