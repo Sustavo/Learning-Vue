@@ -1,10 +1,18 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <h1>Essa é a home</h1>
+  <h1 @click="navegarCursos">Essa é a home</h1>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    navegarCursos() {
+      setTimeout(() => {
+        this.$router.push("acoes");
+      }, 1000)
+    }
+  }
+};
 </script>
 
 <style>
