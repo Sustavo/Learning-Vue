@@ -36,3 +36,12 @@ vue-router/package.json
 vue-router/vue.config.js
 vue-router/yarn.lock
 vue-router/dist
+
+#Vuex
+
+vuex/babel.config.js
+vuex/jsconfig.json
+vuex/package.json
+vuex/vue.config.js
+vuex/yarn.lock
+vuex/dist
