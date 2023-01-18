@@ -1,19 +1,27 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <div>
-        <p>Curso</p>
-        <Aula />
+        <button @click="handleClick">Clique aqui</button>
+        <p>{{ user }}</p>
     </div>
 </template>
 
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import Aula from './Aula.vue';
+import { mapState } from 'vuex';
 
 export default {
     name: 'Curso',
-    components: {
-        Aula
+    methods: {
+        handleClick() {
+            this.$store.dispatch('changeUser', {
+                name: 'Ave',
+                id: '2345',
+            });
+        }
+    },
+    computed: {
+        ...mapState(['user']),
     }
 }
 </script>
