@@ -7,7 +7,7 @@
     <ul>
       <li v-for="livro in livrosLidos(true)" :key="livro.nome">{{ livro.nome }}</li>
     </ul>
-    {{ $store.state.acaoExec }}
+    {{ $store.state.acao.acaoExec}}
     <Aluno />
     <Curso />
   </div>
@@ -29,7 +29,7 @@ export default {
     ...mapGetters(["livrosLidos"])
   },
   created() {
-    this.$store.dispatch('puxarAcao');
+    this.$store.dispatch('acao/puxarAcao');
   }
 }
 </script>
