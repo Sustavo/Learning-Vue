@@ -1,21 +1,35 @@
 <template>
   <div id="app">
-    {{ $store.state.user }}
-    <User />
+    <ul>
+      <li v-for="livro in $store.state.livros" :key="livro.nome">{{ livro.nome }}</li>
+    </ul>
+    <h2>Livros Lidos</h2>
+    <ul>
+      <li v-for="livro in livrosLidos(true)" :key="livro.nome">{{ livro.nome }}</li>
+    </ul>
+    {{ $store.state.acaoExec }}
+    <Aluno />
     <Curso />
   </div>
 </template>
 
 <script>
-import User from './components/User.vue';
-import Curso from './components/Curso.vue';
+import Aluno from './components/Exercícios/Aluno.vue';
+import Curso from './components/Exercícios/Curso.vue';
+import { mapGetters } from 'vuex';
 
 
 export default {
   name: 'App',
   components: {
-    User,
+    Aluno,
     Curso
+  },
+  computed: {
+    ...mapGetters(["livrosLidos"])
+  },
+  created() {
+    this.$store.dispatch('puxarAcao');
   }
 }
 </script>
